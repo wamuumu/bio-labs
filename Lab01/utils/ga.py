@@ -1,5 +1,5 @@
 from pylab import *
-import plot_utils
+import utils.plot_utils as plot_utils
 from inspyred import ec, benchmarks
 
 def generate_offspring(random, x0, std_dev, num_offspring, display, kwargs) :

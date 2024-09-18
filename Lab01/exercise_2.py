@@ -1,4 +1,4 @@
-from ga import generate_offspring
+from utils.ga import generate_offspring
 from pylab import *
 from random import Random
 import sys

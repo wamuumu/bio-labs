@@ -1,5 +1,5 @@
 from pylab import *
-from ga import generate_offspring
+from utils.ga import generate_offspring
 from random import Random
 import sys
 

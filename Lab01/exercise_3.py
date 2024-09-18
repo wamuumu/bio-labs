@@ -1,6 +1,6 @@
 from pylab import *
 from random import Random
-from ga import run_ga
+from utils.ga import run_ga
 import sys
 
 """    
