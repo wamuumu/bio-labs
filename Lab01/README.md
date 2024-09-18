@@ -4,11 +4,11 @@
 
 **Note**: Since the sphere function is being used, the better fitness is obtained when the results are closer to zero, which is the global minimum.
 
-_Q1: Do the mutations tend to improve or worsen the fitness of the parent?_
+### _Q1: Do the mutations tend to improve or worsen the fitness of the parent?_
 
 It depends. Mutations can both improve or worsen the fitness based on the parent initial value, the mutation magnitude and the number of dimensions.
 
-_Q2: Are low or high mutation magnitudes best for improving the fitness? How does this depend on the initial value of the parent and on the number of dimensions of the search space?_
+### _Q2: Are low or high mutation magnitudes best for improving the fitness? How does this depend on the initial value of the parent and on the number of dimensions of the search space?_
 
 **Note** As the mutation magnitude increases, the range of the generated offsprings increases. 
 
