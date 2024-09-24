@@ -1,4 +1,38 @@
-__pycache__
-.ipynb_checkpoints
-Icon_
+# Ignore all Jupyter notebook checkpoints
+**/.ipynb_checkpoints
+
+# Ignore any Jupyter notebook autosave files
+**/*.ipynb_autosave
+
+# Ignore Python bytecode and compiled files
+*.pyc
+__pycache__/
+
+# Ignore virtual environment directories
+venv/
+env/
+.venv/
+
+# Ignore environment configuration files
+*.env
+*.env.*
+
+# Ignore log files
+*.log
+
+# Ignore unnecessary OS-specific files
 .DS_Store
+Thumbs.db
+Icon_
+
+# Ignore any temporary files created by text editors or IDEs
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Ignore any package-related folders (like dist, build, or egg-info)
+dist/
+build/
+*.egg-info/
