@@ -1,5 +1,5 @@
 from pylab import *
-import utils.plot_utils as plot_utils
+from utils.utils_01.plot_utils import *
 from inspyred import ec, benchmarks
 
 def generate_offspring(random, x0, std_dev, num_offspring, display, kwargs) :
@@ -30,11 +30,11 @@ def generate_offspring(random, x0, std_dev, num_offspring, display, kwargs) :
         # Plot the parent and the offspring on the fitness landscape
         # (only for 1D or 2D functions)
         if len(x0) == 1 :
-            plot_utils.plot_results_1D(problem, x0, parent_fitness, offspring,
+            plot_results_1D(problem, x0, parent_fitness, offspring,
                                   offspring_fitnesses, 'Parent', 'Offspring', kwargs)
     
         elif len(x0) == 2 :
-            plot_utils.plot_results_2D(problem, asarray([x0]), offspring,
+            plot_results_2D(problem, asarray([x0]), offspring,
                                   'Parent', 'Offspring', kwargs)
 
     return (parent_fitness, offspring_fitnesses)
@@ -65,7 +65,7 @@ def run_ga(random, display=False, num_vars=0, problem_class=benchmarks.Sphere,
     algorithm.selector = ec.selectors.tournament_selection
     
     if display :
-        algorithm.observer = [plot_utils.plot_observer,initial_pop_observer]
+        algorithm.observer = [plot_observer,initial_pop_observer]
     else :
         algorithm.observer = initial_pop_observer
     
@@ -102,13 +102,14 @@ def run_ga(random, display=False, num_vars=0, problem_class=benchmarks.Sphere,
         # Plot the parent and the offspring on the fitness landscape 
         # (only for 1D or 2D functions)
         if num_vars == 1 :
-            plot_utils.plot_results_1D(problem, initial_pop_storage["individuals"],
+            plot_results_1D(problem, initial_pop_storage["individuals"],
                                   initial_pop_storage["fitnesses"], 
                                   final_pop_candidates, final_pop_fitnesses,
                                   'Initial Population', 'Final Population', kwargs)
     
         elif num_vars == 2 :
-            plot_utils.plot_results_2D(problem, initial_pop_storage["individuals"], 
+            
+            plot_results_2D(problem, initial_pop_storage["individuals"], 
                                   final_pop_candidates, 'Initial Population',
                                   'Final Population', kwargs)
 

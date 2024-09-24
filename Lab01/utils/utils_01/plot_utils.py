@@ -36,6 +36,7 @@ def plot_results_1D(problem, individuals_1, fitnesses_1,
     ax2.set_ylabel('Fitness')
     ax1.set_title(title_1)
     ax2.set_title(title_2)
+    fig.tight_layout()
 
 def plot_results_2D(problem, individuals_1, individuals_2, 
                     title_1, title_2, args) :
@@ -65,6 +66,7 @@ def plot_results_2D(problem, individuals_1, individuals_2,
     plot_2D(ax1, problem, [-lim, lim])
     c = plot_2D(ax2, problem, [-lim, lim])
     fig.subplots_adjust(right=0.8)
+    fig.tight_layout()
     cax = fig.add_axes([0.85, 0.15, 0.05, 0.7])
     colorbar_ = colorbar(c, cax=cax)
     colorbar_.ax.set_ylabel('Fitness')
@@ -146,4 +148,4 @@ def plot_observer(population, num_generations, num_evaluations, args):
     plt.ylim((ymin - 0.1*yrange, ymax + 0.1*yrange))
     plt.draw()
     plt.legend()
-    plt.show()
+    #plt.show()
