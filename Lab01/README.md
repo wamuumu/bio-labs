@@ -1,8 +1,8 @@
 # Notes
 
-## Exercise 1
-
 **Note** Since the sphere function is being used, the better fitness is obtained when the results are closer to zero, which is the global minimum.
+
+## Exercise 1
 
 ### _Q1: Do the mutations tend to improve or worsen the fitness of the parent?_
 
