@@ -1,9 +1,0 @@
-python -m venv venv 
-
-On Windows:
-.\venv\Scripts\activate 
-deactivate
-
-On Mac:
-source venv/bin/activate
-deactivate 

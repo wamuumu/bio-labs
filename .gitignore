@@ -9,6 +9,7 @@
 __pycache__/
 
 # Ignore virtual environment directories
+Envs/
 venv/
 env/
 .venv/
@@ -24,6 +25,7 @@ env/
 .DS_Store
 Thumbs.db
 Icon_
+Icon
 
 # Ignore any temporary files created by text editors or IDEs
 *.swp
