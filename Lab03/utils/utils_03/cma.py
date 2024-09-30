@@ -895,7 +895,7 @@ class GenoPheno(object):
                          ' does not match dimension N == ' + str(self.N)) 
             
         if (self.scales == 1 and 
-                self.typical_x is 0 and 
+                self.typical_x == 0 and 
                 self.bounds in (None, [None, None]) and 
                 self.fixed_values is None and 
                 self.tf_pheno is None):
@@ -954,10 +954,10 @@ class GenoPheno(object):
                 y.insert(i, self.fixed_values[i])
             y = array(y, copy=False)
             
-        if self.scales is not 1:  # just for efficiency
+        if self.scales != 1:  # just for efficiency
             y *= self.scales
 
-        if self.typical_x is not 0:
+        if self.typical_x != 0:
             y += self.typical_x
 
         if self.tf_pheno is not None:
@@ -1007,9 +1007,9 @@ class GenoPheno(object):
             _Error('t1 of options transformation was not defined but is needed as being the inverse of t0')
         
         # affine-linear transformation: shift and scaling
-        if self.typical_x is not 0:
+        if self.typical_x != 0:
             x -= self.typical_x
-        if self.scales is not 1:  # just for efficiency
+        if self.scales != 1:  # just for efficiency
             x /= self.scales  
     
         # kick out fixed_values
@@ -2392,7 +2392,7 @@ class CMAEvolutionStrategy(OOOptimizer):
             # self.C = self.Zpos + Cs * Mh.expms(-self.sp.neg.cmuexp*Csi*self.Zneg*Csi) * Cs
             self.Zneg = np.zeros((self.N, self.N))
 
-        if self.sigma_vec is not 1 and not np.all(self.sigma_vec == 1):
+        if self.sigma_vec != 1 and not np.all(self.sigma_vec == 1):
             self.C = dot(dot(np.diag(self.sigma_vec), self.C), np.diag(self.sigma_vec))
             self.sigma_vec[:] = 1
 

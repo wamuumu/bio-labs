@@ -15,6 +15,9 @@ GLOBAL = 'Global'
 INDIVIDUAL = 'Individual'
 CORRELATED = 'Correlated'
 
+COMMA = 'Comma'
+PLUS = 'Plus'
+
 class ES(EvolutionaryComputation):
     """Evolution Strategy EC
     
@@ -39,12 +42,14 @@ class ES(EvolutionaryComputation):
     set to ``1 / sqrt(2*sqrt(n))``.
     
     """
-    def __init__(self, random):
+    def __init__(self, random, replacement_type=COMMA):
         EvolutionaryComputation.__init__(self, random)
         self.selector = selectors.default_selection
         self.variator = self._internal_variation
-        #self.replacer = replacers.comma_replacement
-        self.replacer = replacers.plus_replacement
+        if replacement_type is COMMA:
+            self.replacer = replacers.comma_replacement
+        elif replacement_type is PLUS:
+            self.replacer = replacers.plus_replacement
     
     def elementary_rotation(self, p, q, alphas):
         R = ones((self.num_vars, self.num_vars))
@@ -228,8 +233,9 @@ def run_es(random, display=False, num_vars=0, problem_class=benchmarks.Sphere,
     
     #create dictionaries to store data about initial population, and lines
     initial_pop_storage = {}
- 
-    algorithm = ES(random)
+     
+    replacement_type = kwargs.setdefault('replacement_type', COMMA)
+    algorithm = ES(random, replacement_type)
     algorithm.terminator = terminators.generation_termination
 
     if display :
