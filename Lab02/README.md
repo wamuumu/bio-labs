@@ -26,7 +26,7 @@ For the sphere function (unimodal), a larger tournament size tends to give bette
 
 ### _Q2: Which tournament size is better for the fitness function Rastrigin and why?_
 
-![alt text](./img/img_02/Rastrigin_function.png "Rastrigin function")
+![Rastrigin Objective Function](./img/img_02/Rastrigin_function.png "Rastrigin function")
 
 On the other hand, for the Rastrigin function, a smaller tournament size produces the best results. This happens because the Rastrigin function is a multimodal function, meaning that it has many local optima. By applying a **lower selection pressure** (10 groups of 2 where we take 1 champion each), the algorithm maintains more **diversity** in the population, which helps in exploring different regions of the search space (i.e. smaller tournament size avoid a faster convergence to the local optima)
 

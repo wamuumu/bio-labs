@@ -3,7 +3,7 @@
 ## Exercise 1
 
 **Kursawe Objective functions**
-![Kursawe Objective Function](https://github.com/wamuumu/bio-labs/blob/main/Lab04/img/img_02/kursawe.png "Kursawe objectives")
+![Kursawe Objective Function](./img/img_02/kursawe.png "Kursawe objectives")
 
 ### _Q1: What happens when you run the GA with this fitness function?_
 
