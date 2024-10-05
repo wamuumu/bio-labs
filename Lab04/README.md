@@ -35,15 +35,19 @@ While the combination of multiple objective functions into a single one using a 
 
 ### _Q1: How do the solutions you find here compare to those found in exercise 1?_
 
-As can be seen in the plotted Pareto front, the two objectives seem proportionally inverse. In fact, lower values for f1 leads to higher values for f0 and viceversa. This happens because, as we already saw in the first exercise, the two objectives have different relative scaling.
+In Exercise 1, the objectives were combined into a single fitness function by assigning weights to each of them. In this exercise, instead, NSGA2 evolves a Pareto-set of non-dominated solutions. These solutions represent different trade-offs between the objectives, rather than focusing on a single weighted sum as in Exercise 1. As can be seen in the plotted figure, the two objectives seem proportionally inverse. In fact, lower values for f1 leads to higher values for f0 and viceversa. This happens because, as we already saw in the first exercise, the two objectives have different relative scaling.
 
 ### _Q2: Is there a single solution that is clearly the best?_
 
-In my opinion, the best solution needs to be searched in the middle of the front [-18, -15]. As it can be seen, the best solutions is the one that achieves f0 = -17.5 and f1 = -3.5
+No, there isn't any solution that is clearly the best, since each solutions in the Pareto front is optimal for a certain balance of the objectives. If I would need to pick one, then the candidate would need to be searched in the middle of the front [-18, -15], since it represents a good trade-off between the objectives.
 
 ### _Q3: Can you still find good solutions?_
 
+It depends. For example, in the middle-left plot where f0 is compared against f1, then it can clearly be seen that the bottom-left cluster of points represents a set of good solutions, since all of them minimize the two objectives. On the other hand, the comparison between f0/f1 againts f2 is harder: it's not clear if there is a solution that is the best, since a first set of points minimize the first objective, while the other the second objective.
+
 ### _Q4: What happens if you increase the population size or the number of generations?_
+
+If the population size is increased, then the initial set of solutions would be more diverse, which may help the algorithm in exploring better the search space. If the number of generations is increased, then there will be more iterations to refine the new solutions and so to achieve better results. If both are increased, then the resulting sets of solutions would be better defined and more dense.
 
 ## Exercise 3
 
@@ -56,3 +60,15 @@ The algorithm seems to find reasonable solutions to this problem, as highlighted
 From the plotted Pareto front, it is clear that there's is an inverse relationship between the two objectives. As the mass f0 decreases, the stopping time f1 increases and viceversa. This translates in "lighter brake results in worse performance of stopping time". For a future design of this system, I think there's a need to a trade-off between the twos: for example, if the car has a limiting mass, then we may accept longer stopping time and viceversa. Another thing to note is that in certain points, if the mass is reduced slightly, the time is increased by a small amount. So these solutions need to be taken into account and considered acceptable.
 
 ## Instructions & Questions 
+
+### _Q1: When do you think it is appropriate to use a multi-objective evolutionary algorithm vs. combining multiple objectives into a single fitness function?_
+
+Multi-objective EA should be used when conflicting objectives are present or when there's no indication on which objective to prefer wrt the others: this allow to generate the Pareto-front to show the trade-off between them. Instead, it makes more sense to combine multiple objective into a single one when it's clear that one objective has more importance than the others.
+
+### _Q2: What can the results of a multi-objective algorithm teach us about exploring the design spaces of engineering problems?_
+
+As shown in the previous exercises, the multi-objective EA often improve a solution at the cost of another one. This helps in understanding the relationship between the objectives and how they interact with one another.
+
+### _Q3: In biological evolution it is possible to think of many phenotypic traits that contribute to the ultimate fitness of an organism (try to enumerate some of these). What (if any) relevance do multi-objective evolutionary algorithms have to biology?_
+
+Some phenotypic traits that contribute to the fitness of an organism may include survival traits like strenght, speed or camouflage and helth-related traits like immunity or resistance to certain bacteria. I think that multi-objective EA directly correlate with biology, since organisms, as they evolve, must balance different traits in order to survive, like the ones beforementioned.             
