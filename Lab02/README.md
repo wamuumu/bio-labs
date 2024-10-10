@@ -57,7 +57,7 @@ Unimodal functions are benefited if less "groups" are created (i.e. high tournam
 
 Increasing the number of variables increases the complexity of each function, as they represent the number of dimensions in the search space. A higher number of dimensions tends to make the search more difficult, producing higher overall fitness values, especially in multimodal functions.
 
-## Instructions & Questions 
+## Final questions 
 
 ### _Q1: Why is it useful to introduce crossover in EA? Can you think of any cases when mutation only can work effectively, without crossover? What about using crossover only, without mutation?_
 

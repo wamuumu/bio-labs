@@ -51,7 +51,7 @@ As the mutation magnitude increases, the results worsen. This is because in mult
 The results clearly show three different fitness values for the three distinct mutation magnitudes. In particular, the lowest magnitude isn't enough to move towards zero (i.e. the global optimum), while the highest one tends to over explore the search space, moving away from the best value. The middle one strikes a good balance between exploration and stability, achieving the better fitness value.
 
 
-## Instructions & Questions 
+## Final questions
 
 ### _Q1: What is the genotype and what is the phenotype in the problems considered in this lab?_
 

@@ -55,7 +55,7 @@ Yes, CMA-ES with fewer function evaluations outperforms all the previous strateg
 
 If the problem dimensions is small, then both CMA-ES and self-adaptive strategies produces optimal results, which simple ES like Individual or Global sometimes performing better, especially if ρ is set correctly. As the number of dimensions increase, then CMA-ES outperforms all the other strategies. For the population size, CMA-ES always outperforms the others.
 
-## Instructions & Questions 
+## Final questions
 
 ### _Q1: Do the observations you made while varying μ, ρ, and λ confirm or contradict the conclusions you drew in the previous module’s exercises?_
 

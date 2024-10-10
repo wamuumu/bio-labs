@@ -59,7 +59,7 @@ The algorithm seems to find reasonable solutions to this problem, as highlighted
 
 From the plotted Pareto front, it is clear that there's is an inverse relationship between the two objectives. As the mass f0 decreases, the stopping time f1 increases and viceversa. This translates in "lighter brake results in worse performance of stopping time". For a future design of this system, I think there's a need to a trade-off between the twos: for example, if the car has a limiting mass, then we may accept longer stopping time and viceversa. Another thing to note is that in certain points, if the mass is reduced slightly, the time is increased by a small amount. So these solutions need to be taken into account and considered acceptable.
 
-## Instructions & Questions 
+## Final questions
 
 ### _Q1: When do you think it is appropriate to use a multi-objective evolutionary algorithm vs. combining multiple objectives into a single fitness function?_
 
