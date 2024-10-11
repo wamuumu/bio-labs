@@ -6,7 +6,7 @@
 
 **Note** In this first exercise, the mutation and crossover rates are set both to 1 in distinct runs, thus the expected results should produce mutation-only and crossover-only offsprings.
 
-### _Q1: Do you see any difference between the two results? Why?_
+### _Do you see any difference between the two results? Why?_
 
 From the results obtained running the first exercise, it is clear that there's a difference between the results of mutation-only and crossover-only in terms of fitness. In particular, mutation-only approach produces lower fitness value, which is better given that the sphere optimization function is used and the goal is to minimize the fitness. The difference between the two results can be explained by the fact that **mutation-only approach** allows for exploration of the search space, retrieving information for new genetic material that can improve the fitness. On the other hand, **crossover-only approach** only recombines existing genetic material, limiting the arease of the search space to explore. Given that the population lacks in diversity, this approach may fail to achieve optimal fitness values.
 
@@ -14,17 +14,17 @@ From the results obtained running the first exercise, it is clear that there's a
 
 **Note** In this exercise, the mutation rate is fixed and set to 50%. Thus, a genome has a 50% chance to mutate. However, the crossover rates change.
 
-### _Q1: Is there an optimal crossover fraction for this fitness function? Why?_
+### _Is there an optimal crossover fraction for this fitness function? Why?_
 
 The optimal crossover fraction depends on how well crossover can combine useful traits from parents. By running the exercise with different crossover rates ranging from [0...1], the results show that the optimal range is around `0.5`. This happens because a balanced approach between mutation (fixed to `0.5`) and crossover can introduce a good mix of **exploration** and **exploitation**. Higher values for crossover can limit the exploration, while lower values can reduce the mix of traits. 
 
 ## Exercise 3
 
-### _Q1: Which tournament size gives better results for the fitness function sphere and why?_
+### _Which tournament size gives better results for the fitness function sphere and why?_
 
 For the sphere function (unimodal), a larger tournament size tends to give better results. This happens because a **higher selection pressure** is applied (2 groups of 10 where we take 1 champion each), meaning that **less offsprings individuals with better fitness** are taken. This approach helps in the convergence towards to the unique global optimum of the sphere function.
 
-### _Q2: Which tournament size is better for the fitness function Rastrigin and why?_
+### _Which tournament size is better for the fitness function Rastrigin and why?_
 
 ![Rastrigin Objective Function](./img/img_02/Rastrigin_function.png "Rastrigin function")
 
@@ -34,7 +34,7 @@ On the other hand, for the Rastrigin function, a smaller tournament size produce
 
 **Note** By increasing the population initial range, the overall diversity between the individuals in increased, leading the solution to move away from the optimal value.
 
-### _Q1: Do you see a different algorithmic behavior when you test the EA on different benchmark functions? Why?_
+### _Do you see a different algorithmic behavior when you test the EA on different benchmark functions? Why?_
 
 Yes, different benchmark functions exhibit different behaviours based on their parameters, given that some of them are unimodal while others multimodal.
 
@@ -53,13 +53,13 @@ By changing population size and tournament size, the selection pressure is affec
 
 Unimodal functions are benefited if less "groups" are created (i.e. high tournament size, meaning high selection pressure). Since there is only a global optimum, a high selection pressure accelerate convergence by favoring the individuals with the best fitness. In multimodal functions, a lower selection pressure should be preferred, given that a premature convergence can lead the solution towards a local optima.
 
-### _Q2: What is the effect of changing the number of variables on each tested function?_
+### _What is the effect of changing the number of variables on each tested function?_
 
 Increasing the number of variables increases the complexity of each function, as they represent the number of dimensions in the search space. A higher number of dimensions tends to make the search more difficult, producing higher overall fitness values, especially in multimodal functions.
 
 ## Final questions 
 
-### _Q1: Why is it useful to introduce crossover in EA? Can you think of any cases when mutation only can work effectively, without crossover? What about using crossover only, without mutation?_
+### _Why is it useful to introduce crossover in EA? Can you think of any cases when mutation only can work effectively, without crossover? What about using crossover only, without mutation?_
 
 1) Crossover can be useful in evolutionary algorithms since it allows for the combination of the genetic material from two distinc parents, allowing the new offspring to inherit beneficial traits from both. 
 
@@ -67,15 +67,15 @@ Increasing the number of variables increases the complexity of each function, as
 
 3) Crossover-only can be used where the initial population has a high diversity, meaning that new solutions can be found by only recombining the beneficial traits of the parents or when solutions are already close to the optimal and only need to be adjusted by a little.
 
-### _Q2: What’s the effect of changing the fraction of offspring created by crossover?_
+### _What’s the effect of changing the fraction of offspring created by crossover?_
 
 By changing the crossover rate, new solutions can beneficiate from both exploration with mutation and exploitation with crossover. This allows the next generation to inherit and combine beneficial traits from the parents while also introducing variations that can lead to better solutions.
 
-### _Q3: Are there optimal parameters for an EA?_
+### _Are there optimal parameters for an EA?_
 
 Results during this lab showed that an optimal value for both crossover and mutation rates is `0.5`, which strikes a good balance between exploration and exploitation. All the other parameters are problem-specific, meaning that they need to be adjusted accordingly based on the actual problem.
 
-### _Q4: What are the advantages and disadvantages of low/high selection pressure?_
+### _What are the advantages and disadvantages of low/high selection pressure?_
 
 High selection pressure is obtained when a small set of individuals with the better fitness is chosen. This could lead to a faster convergence by exploiting the best solutions for future generations (e.g. unimodal functions). However, this approach penalize the diversity of the population by eliminating individuals with lower fitness and can potentially move the solution to a premature convergence (e.g. multimodal functions).
 

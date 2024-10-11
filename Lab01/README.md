@@ -4,11 +4,11 @@
 
 ## Exercise 1
 
-### _Q1: Do the mutations tend to improve or worsen the fitness of the parent?_
+### _Do the mutations tend to improve or worsen the fitness of the parent?_
 
 It depends. Mutations can both improve or worsen the fitness based on the parent initial value, the mutation magnitude and the number of dimensions.
 
-### _Q2: Are low or high mutation magnitudes best for improving the fitness? How does this depend on the initial value of the parent and on the number of dimensions of the search space?_
+### _Are low or high mutation magnitudes best for improving the fitness? How does this depend on the initial value of the parent and on the number of dimensions of the search space?_
 
 **Note** As the mutation magnitude increases, the range of the generated offsprings increases. 
 
@@ -32,28 +32,28 @@ In the **hundred-dimensional** case, the search space is very wide. In this case
 
 ## Exercise 3
 
-### _Q1: How close is the best individual from the global optimum?_
+### _How close is the best individual from the global optimum?_
 
 With the data provided, the best individual is pretty close to global optimum. This is because we are in a one-dimensional space, and the sphere function is able to easily find a really good individual.
 
-### _Q2: How close are the best individuals now from the global optimum?_
+### _How close are the best individuals now from the global optimum?_
 
 As the number of dimensions increases, the algorithm struggles to find very good individuals. For instance, the distance from the global optimum increases exponentially.
 
-### _Q3: Can you get as close as in the one-dimensional case by modifying the mutation magnitude and/or the number of generations?_
+### _Can you get as close as in the one-dimensional case by modifying the mutation magnitude and/or the number of generations?_
 
 As the mutation magnitude increases, the results worsen. This is because in multi-dimensional cases, random mutation are likely to worsen the final results, since each muation tends to move far away from the parent. If the number of generation increases, the results obtained are better, but not even close to the one-dimensional case.
 
 ## Exercise 4
 
-### _Q4: Did you see any difference in the best fitness obtained? Try to explain the result._
+### _Did you see any difference in the best fitness obtained? Try to explain the result._
 
 The results clearly show three different fitness values for the three distinct mutation magnitudes. In particular, the lowest magnitude isn't enough to move towards zero (i.e. the global optimum), while the highest one tends to over explore the search space, moving away from the best value. The middle one strikes a good balance between exploration and stability, achieving the better fitness value.
 
 
 ## Final questions
 
-### _Q1: What is the genotype and what is the phenotype in the problems considered in this lab?_
+### _What is the genotype and what is the phenotype in the problems considered in this lab?_
 
 The genotype is the representation of the parent in the search space, which is not mutated but it is used to generate the offsprings. So, for instance, some genotypes are:
 - [1] in one-dimensional cases
@@ -62,7 +62,7 @@ The genotype is the representation of the parent in the search space, which is n
 
 Instead, the phonotype is the manifestation of the genotype. So, after mutating the initial genotype (parent), the new genotypes are obtained (offsprings) and the corresponding phenotypes are their fitness values, which represent how good the individuals are.
 
-### _Q2: What are the advantages and disadvantages of low/high mutation magnitudes in EAs?_
+### _What are the advantages and disadvantages of low/high mutation magnitudes in EAs?_
 
 There are several advantages and disadvantages of low/high mutation magnitudes.
 
@@ -78,7 +78,7 @@ There are several advantages and disadvantages of low/high mutation magnitudes.
 - [CON] If the initial value is good, then high mutation magnitudes can move the solution far away from the global optimum
 - [CON] Maybe they don't help in convergence
 
-### _Q3: Based on the previous observations, do you think there is an optimal mutation magnitude for a biological organism? Do mutations typically improve or worsen the fitness of a biological organism? In which situations do you think low/high mutation rates are advantageous for a population of bacteria?_
+### _Based on the previous observations, do you think there is an optimal mutation magnitude for a biological organism? Do mutations typically improve or worsen the fitness of a biological organism? In which situations do you think low/high mutation rates are advantageous for a population of bacteria?_
 
 1) Based on the previous exercises (especially Exercise 4), I don't think that there's an optimal mutation magnitude, but th privileged ones are those that can strike a balance between exploration and stability.
 2) Based on all the previous exercises, mutations typically tend to worsen the fitness because there are really low of them that can be considered benefcial, while the most are neutral or harmful for the offsprings individuals.
