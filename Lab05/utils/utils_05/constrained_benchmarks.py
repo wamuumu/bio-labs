@@ -26,8 +26,14 @@ class ConstrainedBenchmark(Benchmark):
         raise NotImplementedError
 
 ## MODIFY HERE
-usePenalty = False
-# usePenalty = True
+#usePenalty = False
+
+def setPenalty(value: bool):
+    global usePenalty
+    usePenalty = value
+
+def getPenalty():
+    return usePenalty
 
 #-----------------------------------------------------------------------
 #                 SINGLE-OBJECTIVE CONSTRAINED PROBLEMS
@@ -284,13 +290,15 @@ class Simionescu(ConstrainedBenchmark):
 class SphereCircle(ConstrainedBenchmark):
     def __init__(self, dimensions=2):
         Benchmark.__init__(self, dimensions)
-        self.bounder = ec.Bounder([-5.12] * self.dimensions, [5.12] * self.dimensions)
-        #self.bounder = ec.Bounder([-20] * self.dimensions, [20] * self.dimensions)
+        #self.bounder = ec.Bounder([-5.12] * self.dimensions, [5.12] * self.dimensions)
+        #self.bounder = ec.Bounder([-10] * self.dimensions, [10] * self.dimensions)
+        self.bounder = ec.Bounder([-30] * self.dimensions, [30] * self.dimensions)
         self.maximize = True
     
     def generator(self, random, args):
-        return [random.uniform(-5.12, 5.12) for _ in range(self.dimensions)]
-        #return [random.uniform(-20, 20) for _ in range(self.dimensions)]
+        #return [random.uniform(-5.12, 5.12) for _ in range(self.dimensions)]
+        #return [random.uniform(-10, 10) for _ in range(self.dimensions)]
+        return [random.uniform(-30, 30) for _ in range(self.dimensions)]
     
     # implements the penalty function
     def evaluator(self, candidates, args):
@@ -301,7 +309,7 @@ class SphereCircle(ConstrainedBenchmark):
                 # penalty function (note that in this case we are maximizing, so penalty must be negative)
                 g1 = self.g1(c[0],c[1]) # <=0
                 if g1 > 0:
-                    f = -1  # try to change this penalty function to handle larger search spaces
+                    f = -1.5 * g1 # try to change this penalty function to handle larger search spaces
             fitness.append(f)
         return fitness
     
