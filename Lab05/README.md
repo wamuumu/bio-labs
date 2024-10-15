@@ -14,90 +14,34 @@ As in the unconstrained version, by adjusting parameters like population size an
 
 ### _Do you see any difference in the GA’s behavior (and results) when the penalty is enabled or disabled?_
 
-* In same cases, the unpenalized worst fitness fluctuates more due to a larger exploration of the search space
-* In some cases, in the unpenalized version, the initial progress is more rapid
-* In some cases, the penalized version results in a feasible solution
-
-RosenbrockCubicLine (unpenalized)
-Best Individual: [1.03028423 1.05629959]
-Best Fitness: 0.003606594729740141
-f = 0.003606594729740141
-g1 = -0.056271818001571106
-g2 = 0.08658382207817095
-(unfeasible)
-
-RosenbrockCubicLine (penalized)
-Best Individual: [1.00552209 1.01187006]
-Best Fitness: 0.017485907885017922
-f = 9.37578137006987e-05
-g1 = -0.011869892436831009
-g2 = 0.017392150071317225
-(unfeasible)
-
-RosenbrockDisk (unpenalized)
-Best Individual: [1.01732965 1.03480414]
-Best Fitness: 0.0003027346443394138
-f = 0.0003027346443394138
-g1 = 0.10577922851779764
-(unfeasible)
-
-RosenbrockDisk (penalized)
-Best Individual: [0.97763965 0.96581388]
-Best Fitness: 0.010569289946491991
-f = 0.010569289946491991
-g1 = -0.11142427544858435
-(feasible)
+When the penalty function is enabled, the search behavior changes. With the penalty disabled, the GA explores a larger portion of the search space, leading to more fluctuation in fitness values since it doesn't avoid infeasible solutions. This leads to a faster initial progress, as the algorithm optimizes the objective function without considering the constraints. However, without penalties, the GA will likely converge to infeasible solutions. On the other hand, when the penalty is enabled, the GA focuses more on finding feasible solutions, which slows the initial progress, but ensures that the final solution respects the constraints. Although the search may be slower, the penalized GA is more likely to find a feasible that satisfies all the constraints.
 
 ### _Try to modify the penalty functions used in the code of each benchmark function, and/or change the main parameters of the GA. Are you able to find the optimum on all the benchmark functions you tested?_
 
 ### _Is the GA able to find the optimal solution lying on the unit circle? If not, try to change some of the GA’s parameters to reach the optimum._
 
-Yes, the GA is able to find the optimal solution lying on the unit circle. As described in the Sphere benchmark, the constraint g1 is x^2 + y^2 = 1. Thus, since this is a maximizing problem, then the best solutions should lie on the unit circle and they must have fitness close to 1, like in the example reported below.
-
-* Best Individual: [-0.96962685 -0.23851529]
-* Best Fitness: 0.9970657654925787
-* f = 0.9970657654925787
-* g1 = -0.0029342345074212517 (feasible)
+No, the GA is not able to find a solution that lies on the unit circle. It does a pretty good job finding solutions with fitness that is 0.99, but none of them lies on the circle. However, by increasing or adjusting the GA paremeters, closer solutions to the optimum are found, with the best overall fitness of 0.999999...
 
 ### _By default, the sphere function is defined in a domain [−5.12, 5.12] along each dimension. Try to increase the search space to progressively increasing boundaries (e.g. [−10, 10], [−20, 20], etc.). Is the GA still able to explore the feasible region and find the optimum?_
 
 It depends. For boundaries like [-10, 10] or [-20, 20] the GA is still able to find the optimal solutions, but if they are further increased, then the GA won't be able to find any.
 
-Boundaries: [-10, 10]
-Best Individual: [0.96197045 0.26847245]
-Best Fitness: 0.9974646058224048
-f  = 0.9974646058224048
-g1 = -0.002535394177595185
-(feasible)
-
-Boundaries: [-20, 20]
-Best Individual: [ 0.67411654 -0.73786432]
-Best Fitness: 0.9988768572335911
-f  = 0.9988768572335911
-g1 = -0.0011231427664089022
-(feasible)
-
-Boundaries: [-30, 30]
-Best Individual: [ 13.88584256 -15.82394546]
-Best Fitness: -1
-f  = 443.2138735478158
-g1 = 442.2138735478158
-(unfeasible)
-
 ### _If not, try to think of a way to guide the GA towards the feasible region. How could you change the penalty function to do so?_
 
-In order to handle larger search spaces, then the penalty can be further decreased. For example, if the penalty is set to be -1.5 * g1, then all the unfeasible solutions will be strongly penalized and the results will be inside the feasible region with the constraint be respected.
-
-Best Individual: [0.92994    0.36768557]
-Best Fitness: 0.9999810845533967
-f  = 0.9999810845533967
-g1 = -1.891544660326261e-05
-(feasible)
+In order to handle larger search spaces, then the penalty can be further decreased. For example, if the penalty is set to be -1.5 * g1, then all the infeasible solutions will be strongly penalized and the results will be inside the feasible region with the constraint be respected.
 
 ### _Try to modify the sphere function problem by adding one or more linear/non-linear constraints, and analyze how the optimum changes depending on the presence of constraints._
+
+In the unconstrained version, the objective is minimized when both x and y are zero. Therefore, the global optimum is at (0, 0). With the introduction og the first linear constrain g1, the search space is limited to the region where the sum(x,y) <= 1. In this case, the previous optimum still is a feasible solution. On the other hand, when the second circular constraint is introduced, solutions have been limited inside a circle with center in (1, 1). This scenario moves the global optimum from the previous (0,0) to (1,1), being that the feasible region has moved away. In order to make solutions lie inside that space, a bigger penalty has been introduced. This overall produces solutions that lie inside the intersection of the two constraints, resulting in the new global optimum in (0.3, 0.3), as depicted in the following plot.
+
+![Constraints](./img/img_02/sphere_constraints.png "Sphere constraints")
 
 ## Final questions
 
 ### _What do you think is the most efficient way to handle constraints in EAs?_
 
+I think that the most efficient way to handle constraints in EAs is to properly find **optimal penalties** that can drive solutions inside the feasible region using penalty terms that grow based on the degree of violation. Therefore, after defining all the constraints subject to a problem, then the best approach to handle them would be to find appropriate penalty functions. As seen in class, other methods would be **feasibility-based ranking (stochastic ranking)** or **repair functions**.
+
 ### _Do you think that the presence of constraints makes the search always more difficult? Can you think of cases in which the constraints could actually make the search easier?_
+
+In general, I would say that the presence of constraints makes the search more difficult due to limited feasible space caused by constraints that can be very complex to understand. However, constraints can also be helpful in those cases where solutions need to be guided towards a particular region. For example, if a architectural problem needs to be optimized within certain security limits, then the constraints are crucial in order to not wast time in evaluating harmful designs. On the other hand, the presence of constraints, if there are many, can make the search of solutions really hard.
