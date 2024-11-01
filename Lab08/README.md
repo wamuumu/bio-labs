@@ -48,10 +48,11 @@ _See previous answer._
 
 ### _What do you observe? Is the algorithm without elitism able to converge to the optimal fitness value? What about the algorithm with elitism? What is the effect of elitism on convergence? What about the number of species and their dynamics?_
 
-- With elitism, the algorithm converges
-- Without elitism, 
+The elitism produces overall the best fitness, reaching a faster convergence than the no-elitism, which value fluctuates significantly and doesn't surpass the fitness value of 3 (it never reaches the optimal value). In particular, in the no-elitism, species are not stable, with frequent changes (i.e. the beneficial traits are not taken into consideration). Thus, it can be seen that elitism produces overall less species because elite individuals are preserved and less changes are made between each generation. The effect of elitism on convergence is that elite individuals are preserved, allowing their beneficial traits to be passed on continuosly among the generations.
 
-### _Change the parameter ``num_runs`` to $10$ or more. Does the boxplot confirm -in statistical terms- what you observed on a single run?_
+### _Change the parameter ``num_runs`` to 10 or more. Does the boxplot confirm -in statistical terms- what you observed on a single run?_
+
+Yes, it can be clearly seeen that the elitism produces overall the best fitness value. However, it this case, the no-elitism algorithm can surpass the fitness value of 3. The distribution of data shows that it goes between 3 and 3.9, with most of the data between 3.2 and 3.8, some outliers outside this range and a median value of 3.3. This suggests that in more runs also the no-elitism can achieve good results, that however aren't even closer to the elitism.
 
 ## Final questions
 
