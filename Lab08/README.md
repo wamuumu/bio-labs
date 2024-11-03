@@ -58,7 +58,13 @@ Yes, it can be clearly seeen that the elitism produces overall the best fitness 
 
 ### _What is the genotype and what is the phenotype in the problems considered in this lab?_
 
+In the problems considered during this lab, the genotype encodes the actual NN structure, so all the information regarding nodes, links and hidden units. The phenotype is instead the actual NN in action, that interacts with some input values and produces the output for ``OR``, ``AND`` and ``XOR`` problems.
+
 ### _Why are hidden nodes sometimes needed for a Neural Network to solve a given task? What is the defining feature of problems that networks without hidden nodes are unable to solve?_
 
+Hidden layers are sometimes required to solve a given task because they allow a NN to learn and represent non-linear relationships between input and output (they enable the NN to learn how to combine the inputs in complex ways in order to solve a given problem). Without them, a NN would never be able to solve problems that are not linearly-separable like XOR.
+
 ### _Why are recurrent connections needed to solve certain problems? What is the defining feature of problems that networks without recurrent connections are unable to solve? Are there problems that require recurrent connections and multiple hidden nodes?_
+
+Some problems require recurrent connections to be solved since they give the NN the ability to retain information about previous inputs, enabling it to handle tasks that involve sequential data over time. The set of problems that these NNs are able to solve includes those with temporal dependencies, where a good outcome can be achieved only by introducing a sort of "memory" system, since data heavily rely on previous values (e.g. Natural Language Processing, Speech Recognition, Regression problems like Forecasting and many more).
 
