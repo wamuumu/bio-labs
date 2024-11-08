@@ -26,6 +26,7 @@ env/
 Thumbs.db
 Icon_
 Icon
+Icon?
 
 # Ignore any temporary files created by text editors or IDEs
 *.swp
